@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrintFix Pro | Printer Services & Repair</title>
+    <meta name="description" content="Professional printer repair, maintenance, and managed print services for homes and businesses." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <div class="brand">
+          <div class="brand-mark">P</div>
+          <div>
+            <span class="brand-name">PrintFix Pro</span>
+            <small>Printer Services & Repair</small>
+          </div>
+        </div>
+
+        <nav class="main-nav">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#plans">Plans</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a class="btn btn-primary" href="#contact">Book a Service</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Same-Day Printer Support</p>
+            <h1>Repair, maintenance, and support that keeps your office printing.</h1>
+            <p class="lead">
+              From jammed paper trays to network-connected fleet issues, we diagnose and fix printers quickly with expert service you can rely on.
+            </p>
+            <div class="cta-group">
+              <a class="btn btn-primary" href="#contact">Request a Quote</a>
+              <a class="btn btn-secondary" href="#services">Explore Services</a>
+            </div>
+            <ul class="trust-list">
+              <li>24/7 emergency support</li>
+              <li>Certified technicians</li>
+              <li>Transparent pricing</li>
+            </ul>
+          </div>
+
+          <div class="hero-panel">
+            <div class="hero-card">
+              <span class="tag">Most Requested</span>
+              <h3>Printer Health Check</h3>
+              <ul>
+                <li>Diagnostic inspection</li>
+                <li>Ink / toner review</li>
+                <li>Connectivity test</li>
+              </ul>
+              <div class="price-box">
+                <strong>From $59</strong>
+                <span>Includes parts check</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="features-bar">
+        <div class="container feature-strip">
+          <div><strong>1,200+</strong><span>Repairs completed</span></div>
+          <div><strong>4.9/5</strong><span>Average rating</span></div>
+          <div><strong>48 hrs</strong><span>Average turnaround</span></div>
+          <div><strong>100%</strong><span>Service guarantee</span></div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container two-col">
+          <div>
+            <p class="eyebrow">Why Choose Us</p>
+            <h2>Dependable printer support for homes, offices, and growing businesses.</h2>
+          </div>
+          <div>
+            <p>
+              PrintFix Pro provides on-site repairs, maintenance contracts, and managed print support for laser printers, inkjet systems, scanners, and multifunction devices.
+              We handle everything from minor paper jams to full fleet optimization, so you can stay productive without interruption.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="services">
+        <div class="container">
+          <div class="section-heading center">
+            <p class="eyebrow">Our Services</p>
+            <h2>Comprehensive solutions for every printing need.</h2>
+          </div>
+
+          <div class="card-grid">
+            <article class="service-card" th:each="service : ${services}">
+              <div class="icon-wrap">🖨️</div>
+              <h3 th:text="${service.title}">Service Title</h3>
+              <p th:text="${service.description}">Service description</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section process">
+        <div class="container">
+          <div class="section-heading center">
+            <p class="eyebrow">How It Works</p>
+            <h2>Fast, professional, and stress-free service.</h2>
+          </div>
+
+          <div class="steps-grid">
+            <div class="step">
+              <span>01</span>
+              <h3>Tell Us the Issue</h3>
+              <p>Send us your printer model, symptoms, and urgency.</p>
+            </div>
+            <div class="step">
+              <span>02</span>
+              <h3>Diagnosis</h3>
+              <p>We identify the cause and recommend the best repair path.</p>
+            </div>
+            <div class="step">
+              <span>03</span>
+              <h3>Repair & Test</h3>
+              <p>We fix the issue, clean and recalibrate, then verify output.</p>
+            </div>
+            <div class="step">
+              <span>04</span>
+              <h3>Ongoing Support</h3>
+              <p>Enjoy maintenance options and preventive care to reduce downtime.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="plans">
+        <div class="container">
+          <div class="section-heading center">
+            <p class="eyebrow">Service Plans</p>
+            <h2>Flexible options for home and business print environments.</h2>
+          </div>
+
+          <div class="pricing-grid">
+            <article class="pricing-card" th:each="plan : ${plans}">
+              <div class="plan-header">
+                <h3 th:text="${plan.name}">Plan Name</h3>
+                <div class="plan-price"><span th:text="${plan.price}">$99</span><small>/month</small></div>
+              </div>
+              <p th:text="${plan.details}">Plan details</p>
+              <ul>
+                <li>Priority scheduling</li>
+                <li>Device health checks</li>
+                <li>Reduced service fees</li>
+              </ul>
+              <a class="btn btn-secondary wide" href="#contact">Choose Plan</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="reviews">
+        <div class="container">
+          <div class="section-heading center">
+            <p class="eyebrow">Client Feedback</p>
+            <h2>Trusted by businesses and households across the region.</h2>
+          </div>
+
+          <div class="testimonial-grid">
+            <blockquote class="testimonial" th:each="testimonial : ${testimonials}">
+              <p th:text="${testimonial.quote}">“Quote”</p>
+              <footer th:text="${testimonial.name}">Client Name</footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cta-band">
+        <div class="container cta-band-inner">
+          <div>
+            <p class="eyebrow">Need help now?</p>
+            <h2>Get a fast response from our printer specialists.</h2>
+          </div>
+          <a class="btn btn-primary" href="#contact">Speak with an Expert</a>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="container contact-grid">
+          <div class="contact-copy">
+            <p class="eyebrow">Contact Us</p>
+            <h2>Request a repair or service consultation.</h2>
+            <div class="contact-info">
+              <p><strong>Phone:</strong> (555) 210-4821</p>
+              <p><strong>Email:</strong> help@printfixpro.com</p>
+              <p><strong>Hours:</strong> Mon–Sat, 8:00 AM–7:00 PM</p>
+            </div>
+          </div>
+
+          <form class="contact-form" method="post" th:action="@{/contact}">
+            <div th:if="${successMessage != null}" class="success-message" th:text="${successMessage}">
+              Success message
+            </div>
+
+            <div class="field-row">
+              <label>
+                <span>Name</span>
+                <input type="text" name="name" placeholder="Your name" required />
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </label>
+            </div>
+
+            <div class="field-row">
+              <label>
+                <span>Phone</span>
+                <input type="tel" name="phone" placeholder="(555) 555-1234" required />
+              </label>
+              <label>
+                <span>Service Needed</span>
+                <select name="service" required>
+                  <option value="">Select one</option>
+                  <option value="Repair">Repair</option>
+                  <option value="Maintenance">Maintenance</option>
+                  <option value="Toner replacement">Toner replacement</option>
+                  <option value="Managed service">Managed service</option>
+                  <option value="Network setup">Network setup</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              <span>Project Details</span>
+              <textarea name="message" rows="5" placeholder="Tell us about your printer issue or business requirements."></textarea>
+            </label>
+
+            <button class="btn btn-primary" type="submit">Send Request</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <div>
+          <div class="brand small-brand">
+            <div class="brand-mark">P</div>
+            <div>
+              <span class="brand-name">PrintFix Pro</span>
+            </div>
+          </div>
+        </div>
+        <p>© 2026 PrintFix Pro. Printer repair and support you can trust.</p>
+      </div>
+    </footer>
+
+    <script th:src="@{/js/script.js}"></script>
+  </body>
+</html>
